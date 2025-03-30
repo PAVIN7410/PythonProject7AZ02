@@ -1,25 +1,22 @@
-# Скачайте любой датасет с сайта https://www.kaggle.com/datasets
-# Загрузите набор данных из CSV-файла в DataFrame.
-# Выведите первые 5 строк данных, чтобы получить представление о структуре данных.
-# Выведите информацию о данных (.info()) и статистическое описание (.describe()).
-# Определите среднюю зарплату (Salary) по городу (City) - используйте файл приложенный к дз - dz.csv
-# В поле сдачи домашнего задания приложите ссылку на репозиторий с кодом.
+import pandas as pd
 
-import pandas as pd  # This is a sample Python script.
+data = {
+    'Возраст': [23, 22, 21, 27, 23, 20, 29, 28, 22, 25],
+    'Зарплата': [54000, 58000, 60000, 52000, 55000, 59000, 51000, 49000, 53000, 61000],
+}
+#2. Создаём датафрейм:
 
-df = pd.read_csv("freelancer_earnings_bd.csv")
 
-df.info()
-df.describe()
+df = pd.DataFrame(data)
+#3. Посмотрим, как выглядит этот датафрейм, через функцию describe, пишем:
 
-print(df)
+print(df.describe())
 
-df = pd.read_csv("dz.csv")
 
-df.info()
-print(df)
-df.fillna(value=0, inplace=True)
-print(df)
+print(f"Средний возраст - {df['Возраст'].mean()}")
+print(f"Медианный возраст - {df['Возраст'].median()}")
+print(f"Стандартное отклонение возраста - {df['Возраст'].std()}")
 
-group = df.groupby("City")["Salary"].mean()
-print(group)
+print(f"Средняя зарплата - {df['Зарплата'].mean()}")
+print(f"Медианная зп - {df['Зарплата'].median()}")
+print(f"Стандартное отклонение зп - {df['Зарплата'].std()}")
