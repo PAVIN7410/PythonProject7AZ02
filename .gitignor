@@ -6,6 +6,8 @@ env/
 # Файлы конфигурации среды
 .env
 .env.local
+.idea/workspace.xml
+
 
 # Кэш и временные файлы
 __pycache__/
